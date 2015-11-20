@@ -1,2 +1,17 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h1>All Projects</h1>
+
+<section id="posts">
+
+  <% @posts.each do |post| %>
+    <div class="well">
+      <h3><%= post.title%></h3>
+      <p>
+        <%= post.description %>
+      </p>
+      <div class="iframe_video">
+            <iframe width="560" height="349" src="<%= "http://www.youtube.com/embed/"+post.youtube_link.split('=').last %>"></iframe>
+      </div>
+    </div>
+  <% end %>
+
+</section>

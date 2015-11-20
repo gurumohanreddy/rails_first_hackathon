@@ -1,29 +1,32 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
- // h1{
- //   text-align: center;
- //   color:$main-heading-color;
- //   font-weight: 100;
- // }
+ h1{
+   text-align: center;
+   color:$main-heading-color;
+   font-weight: 100;
+ }
 
  .row{
    margin-top: 3vh;
    text-align: center;
  }
 
-.home{
-  //  max-height: 100vh;
-     .fa{
-       color: $greencolor;
-     }
-     p{
-      color: $light-blue;
-     }
+// .home{
+//   //  max-height: 100vh;
+//
+//  }
 
-     h3{
-        color:$darkblue;
-     }
+ .fa{
+   color: $greencolor;
+ }
+
+ p{
+  color: $light-blue;
+ }
+
+ h3{
+    color:$darkblue;
  }
  .video{
    padding: 7em 0 5em 0;
