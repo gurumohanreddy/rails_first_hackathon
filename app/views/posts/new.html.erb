@@ -1,2 +1,8 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<h1>Add your Project</h1>
+
+<%= simple_form_for @post , html:{class: "well"} do |f| %>
+   <%= f.input :title %>
+   <%= f.input :description %>
+   <%= f.input :youtube_link %>
+   <%= f.submit 'Add Project' , class: "btn btn-primary btn-lg " %>
+<% end %>
