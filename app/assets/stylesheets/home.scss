@@ -4,6 +4,7 @@
  h1{
    text-align: center;
    color:$main-heading-color;
+   font-weight: 100;
  }
 
  .row{
@@ -11,8 +12,8 @@
    text-align: center;
  }
 
- .home{
-   height: 84vh;
+.home{
+  //  max-height: 100vh;
      .fa{
        color: $greencolor;
      }
@@ -25,7 +26,7 @@
      }
  }
  .video{
-   padding: 3vh 0 3vh 0;
+   padding: 7em 0 5em 0;
  }
 footer{
   text-align: center;
