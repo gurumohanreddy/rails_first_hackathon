@@ -4,19 +4,22 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new
-    @post.title = params[:post][:title]
-    @post.description = params[:post][:description]
-    @post.youtube_link = params[:post][:youtube_link]
+    @post = Post.new(post_params)
 
-    @post.save
+    flash[:alert]=  "Unable to Post as the field(s) is left empty" unless @post.save
+      redirect_to posts_path
 
-    redirect_to posts_path
-  end
+    end
 
   def index
     @posts = Post.all
-    
+
   end
+
+  private
+  def post_params
+      params.require(:post).permit(:title,:description,:youtube_link,:image)
+  end
+
 
 end

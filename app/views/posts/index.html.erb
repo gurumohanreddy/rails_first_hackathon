@@ -1,17 +1,28 @@
 <h1>All Projects</h1>
 
 <section id="posts">
+  <% if @posts.any? %>
+        <% @posts.each do |post| %>
+          <div class="well">
+            <h3><%= post.title%></h3>
+            <!-- <p>
+              <%= post.description %>
+            </p> -->
 
-  <% @posts.each do |post| %>
+            <div class="iframe_video">
+                  <iframe width="560" height="349" src="<%= "http://www.youtube.com/embed/"+post.youtube_link.split('=').last %>"></iframe>
+            </div>
+            <%= image_tag post.image.url(:medium) %>
+          </div>
+
+        <% end %>
+
+    <% else %>
+
     <div class="well">
-      <h3><%= post.title%></h3>
-      <p>
-        <%= post.description %>
-      </p>
-      <div class="iframe_video">
-            <iframe width="560" height="349" src="<%= "http://www.youtube.com/embed/"+post.youtube_link.split('=').last %>"></iframe>
-      </div>
+      No Posts yet
     </div>
+
   <% end %>
 
 </section>
