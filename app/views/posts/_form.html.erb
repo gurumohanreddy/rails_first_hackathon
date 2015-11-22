@@ -1,0 +1,7 @@
+<%= simple_form_for post , html:{class: "well newpost" , multipart: true } do |f| %>
+   <%= f.input :title %>
+   <%= f.input :description %>
+   <%= f.input :youtube_link %>
+   <%= f.input :image , as: :file %>
+   <%= f.submit (post.new_record? ? 'Add Project' : 'Update  Project'), class: "btn btn-primary btn-lg " %>
+<% end %>

@@ -5,15 +5,17 @@
         <% @posts.each do |post| %>
           <div class="well">
             <%= link_to "Details", post_path(post),class:"pull-right  btn btn-sm btn-primary" %>
-            <%= link_to "Delete", post_path(post),class:"pull-right btn btn-sm btn-danger" %>
-            <%= link_to "Edit", post_path(post),class:"pull-right btn btn-sm btn-info" %>
+            <% if post.user == current_user %>
+                <%= link_to "Delete", post_path(post),method: :delete,class:"pull-right btn btn-sm btn-danger" %>
+                <%= link_to "Edit", edit_post_path(post),class:"pull-right btn btn-sm btn-info" %>
+            <% end %>
 
             <h3><%= post.title%></h3>
 
             <div class="iframe_video">
                   <iframe width="560" height="349" src="<%= "http://www.youtube.com/embed/"+post.youtube_link.split('=').last %>"></iframe>
             </div>
-            
+
           </div>
 
         <% end %>
