@@ -7,13 +7,17 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 
     flash[:alert]=  "Unable to Post as the field(s) is left empty" unless @post.save
-      redirect_to posts_path
+    redirect_to posts_path
 
-    end
+  end
 
   def index
     @posts = Post.all
 
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
 
   private

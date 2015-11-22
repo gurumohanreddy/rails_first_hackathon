@@ -1,0 +1,14 @@
+<h1><%= @post.title %></h1>
+
+<p>
+  <%= @post.description %>
+</p>
+
+
+<div class="iframe_video">
+      <iframe width="560" height="349" src="<%= "http://www.youtube.com/embed/"+@post.youtube_link.split('=').last %>"></iframe>
+</div>
+
+<div id= "image">
+  <%= image_tag @post.image.url(:large) %>
+</div>
