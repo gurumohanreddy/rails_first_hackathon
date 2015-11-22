@@ -1,6 +1,6 @@
 <%= render partial: "posts/admin", locals:{post: @post} %>
 
-<h1><%= @post.title %></h1>
+<h1><%= @post.title %> <span class="user_email">by <%= @post.user.email %></span></h1>
 
 <p>
   <%= @post.description %>

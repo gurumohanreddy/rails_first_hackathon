@@ -6,7 +6,7 @@
           <div class="well">
             <%= link_to "Details", post_path(post),class:"pull-right  btn btn-sm btn-primary" %>
             <%= render partial: "posts/admin", locals:{post: post} %>
-            <h3><%= post.title%></h3>
+            <h3><%= post.title%> <span class="user_email">by <%= post.user.email %></span></h3>
 
             <div class="iframe_video">
                   <iframe width="560" height="349" src="<%= "http://www.youtube.com/embed/"+post.youtube_link.split('=').last %>"></iframe>
