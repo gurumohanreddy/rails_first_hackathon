@@ -1,7 +1,4 @@
-<% if @post.user == current_user %>
-  <%= link_to "Delete", post_path(@post),method: :delete,class:"pull-right btn btn-sm btn-danger" %>
-  <%= link_to "Edit", edit_post_path(@post),class:"pull-right btn btn-sm btn-info" %>
-<% end  %>
+<%= render partial: "posts/admin", locals:{post: @post} %>
 
 <h1><%= @post.title %></h1>
 
