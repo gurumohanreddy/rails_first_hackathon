@@ -10,14 +10,15 @@ class PostsController < ApplicationController
     @post = current_user.posts.new(post_params)
 
     flash[:alert]=  "Unable to Post as the field(s) is left empty" unless @post.save
+    flash[:alert]= "Your post will be available to public after 24 hrs" if @post.save
     redirect_to posts_path
 
   end
 
   def index
-    @posts = Post.all
-
+    @posts = Post.where(published: !(params[:moderate].present? && current_user.admin?))
   end
+
 
   def edit
 
@@ -25,9 +26,14 @@ class PostsController < ApplicationController
 
 
   def update
-    @post.update_attributes(post_params)
-    @post.save
-    redirect_to @post
+    if params[:published].present? && current_user.admin?
+      @post.published = true
+      @post.save
+      redirect_to posts_path
+    else
+      @post.update_attributes(post_params)
+      redirect_to @post
+    end
   end
 
   def show
@@ -41,7 +47,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-      params.require(:post).permit(:title,:description,:youtube_link,:image)
+    params.require(:post).permit(:title,:description,:youtube_link,:image)
   end
 
   def fetch_post

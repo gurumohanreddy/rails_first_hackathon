@@ -1,7 +1,11 @@
 <% if current_user.try(:admin?) %>
   <%= link_to "Delete", post_path(post),method: :delete,class:"pull-right btn btn-sm btn-danger" %>
   <%= link_to "Edit", edit_post_path(post),class:"pull-right btn btn-sm btn-info" %>
-<% else %>
+  <% unless post.published? %>
+    <%= link_to "Publish", post_path(post, published: true),class:"pull-right btn btn-sm btn-warning", method: :put %>
+  <% end %>
+
+  <% else %>
     <% if post.user == current_user %>
       <%= link_to "Delete", post_path(post),method: :delete,class:"pull-right btn btn-sm btn-danger" %>
       <%= link_to "Edit", edit_post_path(post),class:"pull-right btn btn-sm btn-info" %>
