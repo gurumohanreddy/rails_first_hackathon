@@ -23,6 +23,7 @@ class PostsController < ApplicationController
 
   end
 
+  
   def update
     @post.update_attributes(post_params)
     @post.save
@@ -44,7 +45,13 @@ class PostsController < ApplicationController
   end
 
   def fetch_post
+    if current_user.try(:admin?)
+        @post = Post.find(params[:id])
+    else
+
     @post = current_user.posts.find(params[:id])
+    end
+
   end
 
 end
