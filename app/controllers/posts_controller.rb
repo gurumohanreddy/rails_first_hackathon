@@ -23,7 +23,7 @@ class PostsController < ApplicationController
 
   end
 
-  
+
   def update
     @post.update_attributes(post_params)
     @post.save
