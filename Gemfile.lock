@@ -51,6 +51,7 @@ GEM
       railties (>= 3.1)
     builder (3.2.2)
     byebug (8.2.0)
+    cancancan (1.13.1)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -184,6 +185,7 @@ DEPENDENCIES
   bootstrap-sass
   bootswatch-rails
   byebug
+  cancancan (~> 1.10)
   coffee-rails (~> 4.1.0)
   devise
   font-awesome-rails
